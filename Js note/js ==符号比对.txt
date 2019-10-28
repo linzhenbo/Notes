@@ -41,6 +41,3 @@ eg.
 	
 1.2 比较一方是 null,undefined 类型,不适用于上面的方法  Number(null)=0 Number(undefined)=NAN但是 undefined==null 为true
 	
-	
-
-2对于引用类型：对象，数组，函数
