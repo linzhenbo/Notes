@@ -1,0 +1,46 @@
+== 
+1对于基本类型（值类型） Boolean,Number,String,null,undefined
+1.1 比较 Boolean,Number,String三种类型，先转为数字再比较
+eg.
+	alert(1==true);//true转换成数字也是1   
+	alert('1'==true);//将字符串'1'与true都转换成数字   
+	  
+	alert('abc'==true);//虽然字符串'abc'转换成布尔值是true，但这里会返回false   
+	//因为'abc'转换成数字是NaN，Number('abc')==NAN， 而true转换成数字是1   
+	  
+	alert(123=='123');//同理，true 
+
+1.2 值类型（除了 null 和 undefined 外）和 引用类型比较
+    先调用引用类型对象的valueOf方法，以期待返回一个标量，如果对象的valueOf方法返回的仍然是一个复合对象的话 
+就接着调用对象的toString方法以期待返回一个标量，如果仍然没有返回标量的话，就判为不相等 
+如果valueOf或toString方法之一返回一个标量，就用这个标量同==另一边的标量进行比较
+	eg.
+	var obj={};   
+	alert(obj==true);//false   
+	obj.valueOf=function () {   
+		return '1';   //先调用valueOf,返回时值类型之后就不执行toString了
+	};  
+	obj.toString=function () {   
+		return '13';  //没执行到
+	};    
+	alert(obj==true);//这时就返回true了
+	
+	eg2:
+	var obj={};   
+	alert(obj==true);//false
+	obj.valueOf=function () {
+		console.log(123);   
+		return new Boolean(12);   //返回的是对象,继续调用toString，typeof(new Boolean())=="object", typeof(Boolean(12))=="boolean"
+	};  
+	obj.toString=function () {  
+		console.log(444343); 
+		return '13';   
+	};    
+	alert(obj==true);//这时就返回false,  '13'==true,先同时转为数字再比较
+	
+	
+1.2 比较一方是 null,undefined 类型,不适用于上面的方法  Number(null)=0 Number(undefined)=NAN但是 undefined==null 为true
+	
+	
+
+2对于引用类型：对象，数组，函数
