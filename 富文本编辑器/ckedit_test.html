@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Classic editor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+</head>
+<body>
+    <h1>Classic editor</h1>
+    <textarea name="content" id="editor">
+        &lt;p&gt;This is some sample content.&lt;/p&gt;
+    </textarea>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ),{
+				cloudServices: {
+				tokenUrl: 'https://43325.cke-cs.com/token/dev/g2GVcbbOAfazKbX4TgTRMffboZSpWgI0ZYSJP8t4SzUgc36VOMh92tOHAMf3',
+				uploadUrl: 'https://43325.cke-cs.com/easyimage/upload/'
+			}
+			} )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</body>
+</html>
