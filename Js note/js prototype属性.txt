@@ -1,0 +1,36 @@
+prototype属性
+----------为什么需要prototype属性-------------------------------------------
+一 构造函数与普通函数的区别
+1构造函数也是一个普通函数，只是用new操作符的时候被称为 构造函数
+2this绑定差异：构造函数绑定在创建对象的实例上，普通函数绑定在 函数的调用者上
+3构造函数需要使用new运算符调用，如果构造函数没有参数可以省略小括号，比如new Object。
+4非强制,建议性:构造函数首字母大写，普通函数首字母小写
+
+构造函数有return值怎么办？
+构造函数里没有显式调用return时，默认是返回this对象(这个时候，必须要 使用new关键字来调用吧），也就是新创建的实例对象。 当构造函数里调用return时，分两种情况：
+return的是五种简单数据类型：String，Number，Boolean，Null，Undefined。 这种情况下，忽视return值，依然返回this对象。
+return的是Object 这种情况下，不再返回this对象，而是返回return语句的返回值。
+
+构造函数的缺点就是：同一个构造函数的对象实例之间无法共享属性或方法。
+为了解决构造函数的对象实例之间无法共享属性的缺点，js提供了prototype属性。
+---------------为了解决构造函数的对象实例之间无法共享属性的缺点----------------
+
+　js中每个数据类型都是对象（除了null和undefined），而每个对象都继承自另外一个对象，后者称为“原型”（prototype）对象，只有null除外，它没有自己的原型对象。
+
+　　原型对象上的所有属性和方法，都会被对象实例所共享。
+-------------eg---------------------------------------
+function Person(name,height){
+this.name=name;
+this.height=height;
+}
+Person.prototype.hobby=function(){
+return 'watching movies';
+}
+var boy=new Person('keith',180);
+var girl=new Person('rascal',153);
+console.log(boy.name); //'keith'
+console.log(girl.name); //'rascal'
+console.log(boy.hobby===girl.hobby); //true
+　　上面代码中，如果将hobby方法放在原型对象上，那么两个实例对象都共享着同一个方法。我希望大家都能理解的是，对于构造函数来说，prototype是作为构造函数的属性；对于对象实例来说，prototype是对象实例的原型对象。所以prototype即是属性，又是对象。
+-------------------------------------------------------
+
