@@ -1,0 +1,13 @@
+git diff 比较 本地文件 和暂存区的文件之间的差异
+git diff --cached [filename] 对比已经暂存的文件和上次暂存的差别,没有内容表示现在没有文件为暂存状态
+
+
+
+git reset --hard commitid或者FETCH_HEAD 还原到指定版本或者远程最新的版本,本地修改的文件将会被覆盖
+git restore filename     取消 本地的修改内容
+git checkout -- filename 取消 本地的修改内容 
+
+git restore --staged filename  取消暂存
+git reset head filename  取消暂存
+
+
