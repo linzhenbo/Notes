@@ -1,0 +1,9 @@
+如扩展$.fn.abc(),即$.fn.abc()是对jQuery扩展了一个abc()方法，在每一个jquery实例都可以引用这个方法，例如
+
+$("#div").abc();
+
+jQuery为开发者开发插件提供了两个方法，分别是：
+
+jquery.extend(object);为扩展jquery类本身.为类添加新的方法
+
+jquery.fn.extend(object);给jquery对象添加方法

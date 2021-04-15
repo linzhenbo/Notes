@@ -1,0 +1,17 @@
+powerShell命令入门
+powershell是基于.net,Powershell是cmd的超集,不区分大小写
+
+
+$psversiontable 查看版本
+    PSVersion:powerShell的版本
+	CLRVersion: .net的版本号
+	BuildVersion: windows的版本
+	$psversiontable.BuildVersion:windows的版本,可以用table键补完单词
+	
+& 'test.exe'	调用操作,路径有空格用 单引号括起来
+./test.bat 	调用当前目录下命令
+
+新的命令叫做cmdlet.所有的cmdlet命令规则都遵循动词-名词这种语法结构，如Get-Command、Get-Content等
+get-command -name *process :查找所有以process结尾的命令
+Get-Member 查看一个对象的属性和方法
+iwr:请求下载
