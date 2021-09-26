@@ -1,0 +1,4 @@
+work 模式: 消费者没有返回接收成功确认就把这条消息发送给其他接收者处理消息 qos:1
+           1消费者 手动确认消息收到 2 channel.basicQos(0,perFetchCount:1,false); perFetchCount:表示每次最多能获取到的消息; qos方法写再consume之前,顺序有关
+
+

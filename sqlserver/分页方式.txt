@@ -1,0 +1,17 @@
+sqlserver 分页方式  
+
+1 top not in
+
+SELECT TOP 20 name, number, type FROM master.dbo.spt_values 
+WHERE type='P' AND number NOT IN (SELECT TOP 10 number FROM master.dbo.spt_values WHERE  type='P')
+
+2 row_number()over(),2000以上版本才可以使用
+
+SELECT tm.name, tm.number, tm.type FROM(
+SELECT name, number, type,ROW_NUMBER()OVER (ORDER BY number) AS row_no 
+FROM master.dbo.spt_values WHERE type='P') tm WHERE tm.row_no>10 AND tm.row_no<=(10+20)
+
+3 (order by ...)offset 跳过条数 row fetch next 每次截取条数 row only  ,2012版本及以上才可以使用
+
+-- offset fetch next 之前一定要有 order by
+SELECT name, number, type FROM master..spt_values WHERE type='P' ORDER BY number  OFFSET 10 ROW FETCH NEXT 20 ROW ONLY;

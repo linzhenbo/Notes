@@ -1,0 +1,13 @@
+
+1查看选项 勾选 包含实际的执行计划
+
+2 SET STATISTICS PROFILE ON 
+  执行语句前添加 ↑ 可以看[执行过程表格]
+  
+  关键列: 
+		rows: 表示执行步骤中,所产生的记录条数(真是数据,不是预期)
+		executes 执行步骤被执行的次数
+		stmt text: 执行步骤的描述
+		EstimateRows: 预期返回多少行的数据
+		
+ 
