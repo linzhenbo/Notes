@@ -1,0 +1,6 @@
+1 移步到码云上看
+2 通过绕过DNS解析，直接在本地绑定host
+ (1)在浏览器中打开DNS查询网站 http://tool.chinaz.com/dns 我们输入github.com
+ (2)找到TTL值最小的ip
+ (3)在C:\Windows\System32\drivers\etc目录，找到hosts文件 添加
+	ip地址 github.com

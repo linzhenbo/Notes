@@ -1,0 +1,23 @@
+ORM 框架之 FreeSql
+IFreeSql没有命名空间的类 默认的命名空间是当前项目的命名空间 所以 在当前项目中可以直接用而不用using 
+
+
+一 连接,可以设定通过模型 在数据库表里面同步
+public static IFreeSql fsql = new FreeSql.FreeSqlBuilder()
+							.UseConnectionString(FreeSql.DataType.SqlServer, @"Server=127.0.0.1;Initial Catalog=test11;User ID=sa;Password=P@ssw0rd")
+							.UseAutoSyncStructure(true)//自动把结构同步到数据库表
+							.Build();
+							
+模型和表同步关系:
+1 跟模型名一样的表不存在即创建 
+2 模型中的属性在表里不存在就在表中添加(跟表类型不一样按照模型更新表) 
+3 表中列不存在于模型中不处理(表也不删除列)
+表 包含 模型
+
+
+二 使用 .Select .First()
+var userOne=fsql.Select<User>().First();
+
+
+
+

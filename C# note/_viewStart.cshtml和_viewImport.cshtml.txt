@@ -1,0 +1,6 @@
+1_ViewStart.cshtml 在每个view 开始之前执行,属性可以在每个view中
+例如设置 布局文件 layout,设置共用属性 viewBag.title等
+
+2_ViewImports.cshtml 放一些要引用的命名空间,之后的每一个View 就不用再引用这些命名空间，
+
+3与_ViewStart.cshtml 一样，可以为不同的Controller、不同的Area 增加_ViewImports.cshtml

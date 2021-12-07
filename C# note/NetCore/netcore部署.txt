@@ -1,0 +1,9 @@
+
+
+一 部署相关
+
+1 查看电脑中doenet core安装信息
+    命令                  说明
+ dotnet --list-sdks     查看dotnet core sdk安装版本和位置
+ dotnet --list-runtimes 查看dotnet core 运行时安装版本和位置
+ 

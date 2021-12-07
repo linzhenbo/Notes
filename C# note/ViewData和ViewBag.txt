@@ -1,0 +1,6 @@
+
+1 ViewData和ViewBag 可以混用,数据共享, key 不
+2 ViewData和ViewBag 都是弱类型数据,在编译时不验证, 存在安全隐患
+3 在控制器的属性上面添加属性 [ViewData],这样在也面就可以直接 通过ViewData或者ViewBag去显示
+  在控制的设置的viewData会被 页面上的重新设置 覆盖
+  
