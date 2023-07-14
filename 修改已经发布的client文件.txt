@@ -1,0 +1,25 @@
+可使用 mageui.exe(C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools这路径下) 对程序清单进行更改,即
+可以修改 发布的url
+
+
+-------------------------------------------------------------------------------
+尝试1 修改外面的SSO.Login.application
+1 先修改外面的SSO.Login.application 的内容 
+2 然后用mageui.exe 打开SSO.Login.application 保存,保存后会自动签名,签名需要证书和密码
+3 然后去安装 
+结果说明: 我们修改部分变了,文件本身的签名也变了,---->可以安装成功
+
+-------------------------------------------------------------------------------
+尝试2 修改里面的SSO.Login.application
+1 先修改里面的SSO.Login.application 的内容 
+2 然后用mageui.exe 打开SSO.Login.application 保存,保存后会自动签名
+3 然后去安装 
+结果说明: 我们修改部分变了,文件本身的签名也变了,---->可以安装成功
+-------------------------------------------------------------------------------
+尝试2 修改里面的SSO.Login.exe.config.deploy内容 注意SSO.Login.exe.manifest的内容变化
+1 先修改里面的SSO.Login.exe.config.deploy 的内容 保存
+2 然后用mageui.exe 打开SSO.Login.exe.manifest 保存,保存后会自动签名
+3 多一步:  用mageui.exe 打开 外面的SSO.Login.application, 应用程序引用点击 选择清单  重新选择刚才保存的 SSO.Login.exe.manifest,然后重新签名
+3 然后去安装 
+结果说明: 我们修改部分变了,文件本身的签名也变了,---->可以安装成功
+
